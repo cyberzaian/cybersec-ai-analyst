@@ -21,8 +21,4 @@ if uploaded_file:
             response = respond_if_needed(log["ip"], analysis)
 
             st.markdown(f"**Plan:** `{task}`")
-            st.markdown(f"**Analysis:**
-```
-{analysis}
-```")
-            st.markdown(f"**Response:** `{response}`")
+            st.markdown(f"""**Analysis:**  
