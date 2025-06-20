@@ -1,7 +1,7 @@
+from openai import OpenAI
 import os
-import openai
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def analyze_log_entry(entry):
     prompt = f"""
@@ -13,7 +13,7 @@ You are an expert cybersecurity analyst. Review the log and identify:
 Log:
 {entry}
     """
-    response = openai.ChatCompletion.create(
+    response = client.chat.completions.create(
         model="gpt-4",
         messages=[{"role": "user", "content": prompt}]
     )
